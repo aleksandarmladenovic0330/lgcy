@@ -13,6 +13,7 @@ struct ContentView: View {
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
+        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
@@ -23,7 +24,9 @@ struct ContentView: View {
                     ForEach(viewModel.images) { imageModel in
                        Image(imageModel.imageName)
                            .resizable()
-                           .scaledToFill()
+                           .aspectRatio(contentMode: .fit)
+                           .frame(width: 200, height: 200)
+                           .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
                            .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
                            .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
                            .clipped()
