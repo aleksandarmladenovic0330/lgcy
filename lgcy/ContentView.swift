@@ -1,49 +1,34 @@
-//
-//  ContentView.swift
-//  lgcy
-//
-//  Created by Evan Boymel on 6/5/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = GalleryViewModel()
-    
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    @State private var showPopover = false
+    @State private var popoverPosition: CGPoint = .zero
+    @StateObject private var galleryViewModel: GalleryViewModel = GalleryViewModel()
     
     var body: some View {
-        NavigationView{
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(viewModel.images) { imageModel in
-                       Image(imageModel.imageName)
-                           .resizable()
-                           .aspectRatio(contentMode: .fit)
-                           .frame(width: 200, height: 200)
-                           .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
-                           .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
-                           .frame(width: UIScreen.main.bounds.width / 3 - 4, height: UIScreen.main.bounds.width / 3 - 4)
-                           .clipped()
-                                       }
-                }
-                .padding(.horizontal, 2)
-            }
-            .navigationTitle("Recents")
-            .navigationBarItems(trailing: Button(action: {
+        NavigationView(content: {
+            ZStack {
+                ImageCollectionView(action: {
+                    showPopover = true;
+                })
                 
-            }) {
-                Image(systemName: "camera")
-            })
-        }
+                if showPopover {
+                    Color.black.opacity(0.2)
+                        .edgesIgnoringSafeArea(.all)
+                        .transition(.opacity)
+                    PopupView(showPopover: $showPopover)
+                        .position(x: UIScreen.main.bounds.width / 2, y: 300)
+                        .transition(.move(edge: .top))
+                        .zIndex(1)
+                }
+            }
+        })
+        .environmentObject(galleryViewModel).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

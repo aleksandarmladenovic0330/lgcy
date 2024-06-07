@@ -16,6 +16,10 @@
 		2F36811B2C1041F300E18B99 /* lgcyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36811A2C1041F300E18B99 /* lgcyUITestsLaunchTests.swift */; };
 		2F36812E2C11AEE700E18B99 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36812D2C11AEE700E18B99 /* ImageModel.swift */; };
 		2F3681302C11AF3E00E18B99 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36812F2C11AF3E00E18B99 /* GalleryViewModel.swift */; };
+		2F3681372C11DB7500E18B99 /* ImageCollectionView.swft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681362C11DB7500E18B99 /* ImageCollectionView.swft.swift */; };
+		2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */; };
+		2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681442C129F6E00E18B99 /* ZoomableView.swift */; };
+		2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681462C12A02C00E18B99 /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		2F36811A2C1041F300E18B99 /* lgcyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lgcyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2F36812D2C11AEE700E18B99 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2F36812F2C11AF3E00E18B99 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		2F3681362C11DB7500E18B99 /* ImageCollectionView.swft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swft.swift; sourceTree = "<group>"; };
+		2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		2F3681442C129F6E00E18B99 /* ZoomableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableView.swift; sourceTree = "<group>"; };
+		2F3681462C12A02C00E18B99 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				2F36812C2C11ABA100E18B99 /* Views */,
-				2F36812B2C11AB9300E18B99 /* Storyboards */,
 				2F36812A2C11AB8A00E18B99 /* Resources */,
 				2F3681292C11AB8400E18B99 /* Models */,
-				2F3681282C11AB7800E18B99 /* Controllers */,
 				2F3681272C11AB5400E18B99 /* Application */,
 				2F3680FD2C1041F200E18B99 /* lgcyApp.swift */,
 				2F3680FF2C1041F200E18B99 /* ContentView.swift */,
@@ -144,13 +150,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		2F3681282C11AB7800E18B99 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		2F3681292C11AB8400E18B99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,16 +166,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2F36812B2C11AB9300E18B99 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		2F36812C2C11ABA100E18B99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2F3681362C11DB7500E18B99 /* ImageCollectionView.swft.swift */,
+				2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */,
+				2F3681442C129F6E00E18B99 /* ZoomableView.swift */,
+				2F3681462C12A02C00E18B99 /* PopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,9 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3681002C1041F200E18B99 /* ContentView.swift in Sources */,
+				2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */,
+				2F3681372C11DB7500E18B99 /* ImageCollectionView.swft.swift in Sources */,
 				2F3681302C11AF3E00E18B99 /* GalleryViewModel.swift in Sources */,
 				2F36812E2C11AEE700E18B99 /* ImageModel.swift in Sources */,
 				2F3680FE2C1041F200E18B99 /* lgcyApp.swift in Sources */,
+				2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */,
+				2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
