@@ -4,6 +4,7 @@ import CoreImage
 struct ImageDetailView: View {
     @EnvironmentObject var galleryViewModel: GalleryViewModel
     @State private var showImageIndex: Int = -1
+    @State private var keys: [String] = ["Paris", "Los Angeles", "Oslo", "Melbourne", "Tokyo", "New York"]
     private let context = CIContext()
 
     func generateFilteredImages(to image: UIImage) -> [UIImage] {
@@ -41,26 +42,32 @@ struct ImageDetailView: View {
                 Image(uiImage: showImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 600)
+                    .frame(height: 400)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Image(uiImage: originalImage)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                            .onTapGesture {
-                                showImageIndex = -1
-                            }
-                        ForEach(Array(filteredImages.enumerated()), id: \.element) {index, filteredImage in
-                            Image(uiImage: filteredImage)
+                    HStack(spacing: 10) {
+                        VStack {
+                            Text("Normal").foregroundColor(.white)
+                            Image(uiImage: originalImage)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 100)
+                                .frame(height: 150)
                                 .onTapGesture {
-                                    showImageIndex = index;
+                                    showImageIndex = -1
                                 }
                         }
-                    }
+                        ForEach(Array(filteredImages.enumerated()), id: \.element) {index, filteredImage in
+                            VStack {
+                                Text(keys[index]).foregroundColor(.white)
+                                Image(uiImage: filteredImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 150)
+                                    .onTapGesture {
+                                        showImageIndex = index;
+                                    }
+                            }
+                        }
+                    }.padding()
                 }
             }
         }
