@@ -52,7 +52,10 @@ class GalleryViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     let imageModel = ImageModel(image: image)
                     self.images.append(imageModel)
-                    self.currentSelected = imageModel
+                    if (self.currentSelected == nil) {
+                        self.currentSelected = imageModel
+                        self.selectedImageIDs.insert(imageModel.id)
+                    }
                 }
             }
         }

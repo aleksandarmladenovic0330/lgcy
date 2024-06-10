@@ -48,6 +48,9 @@ struct ImageCollectionView: View {
                 }
             }
         } else {
+            if galleryViewModel.selectedImageIDs.count == 10 {
+                return
+            }
             galleryViewModel.selectedImageIDs.insert(imageModel.id)
             galleryViewModel.currentSelected = imageModel;
             action(true)
