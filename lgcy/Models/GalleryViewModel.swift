@@ -11,7 +11,7 @@ import SwiftUI
 class GalleryViewModel: ObservableObject {
     var count = 50;
     @Published var images: [ImageModel] = []
-    @Published var selectedImageIDs: Set<UUID> = []
+    @Published var selectedImageIDs: [UUID] = []
     @Published var currentSelected: ImageModel? = nil
     init() {
 //        images = (0..<count).map { index in
@@ -54,7 +54,7 @@ class GalleryViewModel: ObservableObject {
                     self.images.append(imageModel)
                     if (self.currentSelected == nil) {
                         self.currentSelected = imageModel
-                        self.selectedImageIDs.insert(imageModel.id)
+                        self.selectedImageIDs.insert(imageModel.id, at: 0)
                     }
                 }
             }

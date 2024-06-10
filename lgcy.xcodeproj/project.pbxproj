@@ -20,6 +20,7 @@
 		2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */; };
 		2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681442C129F6E00E18B99 /* ZoomableView.swift */; };
 		2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681462C12A02C00E18B99 /* PopupView.swift */; };
+		2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF252C177FA3007A79BC /* NumberBadge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		2F3681442C129F6E00E18B99 /* ZoomableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableView.swift; sourceTree = "<group>"; };
 		2F3681462C12A02C00E18B99 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		2F96FF252C177FA3007A79BC /* NumberBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBadge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				2F3681382C11DE8D00E18B99 /* ImageDetailView.swift */,
 				2F3681442C129F6E00E18B99 /* ZoomableView.swift */,
 				2F3681462C12A02C00E18B99 /* PopupView.swift */,
+				2F96FF252C177FA3007A79BC /* NumberBadge.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				2F36812E2C11AEE700E18B99 /* ImageModel.swift in Sources */,
 				2F3680FE2C1041F200E18B99 /* lgcyApp.swift in Sources */,
 				2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */,
+				2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */,
 				2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

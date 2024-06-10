@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ImageCollectionView: View {
     @EnvironmentObject private var galleryViewModel: GalleryViewModel
+    @State private var number: Int = 1
     let action: (Bool) -> Void
 
     let columns = [
@@ -15,14 +16,20 @@ struct ImageCollectionView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 0) {
                 ForEach(galleryViewModel.images) { imageModel in
-                    Image(uiImage: imageModel.image)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4)
-                        .clipped()
-                        .opacity(galleryViewModel.selectedImageIDs.contains(imageModel.id) ? 0.5 : 1.0)
-                        .onTapGesture {
-                            toggleSelection(for: imageModel)
+                    ZStack(alignment: .topTrailing) {
+                        Image(uiImage: imageModel.image)
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4)
+                            .clipped()
+                            .opacity(galleryViewModel.selectedImageIDs.contains(imageModel.id) ? 0.5 : 1.0)
+                            .onTapGesture {
+                                toggleSelection(for: imageModel)
+                            }.zIndex(1)
+                        if let index = galleryViewModel.selectedImageIDs.firstIndex(of: imageModel.id) {
+                            NumberBadge(number: index + 1)
+                                .zIndex(2)
                         }
+                    }
                 }
             }
             .padding(.horizontal, 2)
@@ -31,7 +38,10 @@ struct ImageCollectionView: View {
 
     private func toggleSelection(for imageModel: ImageModel) {
         if galleryViewModel.selectedImageIDs.contains(imageModel.id) {
-            galleryViewModel.selectedImageIDs.remove(imageModel.id)
+            if let imageIndex = galleryViewModel.selectedImageIDs.firstIndex(of: imageModel.id) {
+                
+                galleryViewModel.selectedImageIDs.remove(at: imageIndex)
+            }
             let imageArray = Array(galleryViewModel.selectedImageIDs)
             if imageArray.isEmpty {
                 action(false)
@@ -39,7 +49,6 @@ struct ImageCollectionView: View {
                 if let foundImage = galleryViewModel.images.first(where: {
                     $0.id == imageArray[imageArray.count - 1]
                 }) {
-                    print(imageArray)
                     galleryViewModel.currentSelected = foundImage;
                     action(true)
                 } else {
@@ -48,14 +57,13 @@ struct ImageCollectionView: View {
                 }
             }
         } else {
-            if galleryViewModel.selectedImageIDs.count == 10 {
+            if galleryViewModel.selectedImageIDs.count == 3 {
                 return
             }
-            galleryViewModel.selectedImageIDs.insert(imageModel.id)
+            galleryViewModel.selectedImageIDs.insert(imageModel.id, at: galleryViewModel.selectedImageIDs.count)
             galleryViewModel.currentSelected = imageModel;
             action(true)
         }
-        
     }
 }
 
