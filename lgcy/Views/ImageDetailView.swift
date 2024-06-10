@@ -36,7 +36,9 @@ struct ImageDetailView: View {
 
     var body: some View {
         VStack {
-            if let originalImage = UIImage(named: galleryViewModel.currentSelectedImageName ?? "image01") {
+            if let currentImage = galleryViewModel.currentSelected
+                {
+                let originalImage = currentImage.image
                 let filteredImages = generateFilteredImages(to: originalImage)
                 let showImage = showImageIndex == -1 ? originalImage : filteredImages[showImageIndex]
                 Image(uiImage: showImage)

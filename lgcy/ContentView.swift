@@ -11,14 +11,11 @@ struct ContentView: View {
                 Text("Recents")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 ZStack {
-                    ImageCollectionView(action: {
-                        showPopover = true;
+                    ImageCollectionView(action: {isSelected in
+                        showPopover = isSelected;
                     })
                     
                     if showPopover {
-                        Color.black.opacity(0.2)
-                            .edgesIgnoringSafeArea(.all)
-                            .transition(.opacity)
                         PopupView(showPopover: $showPopover)
                             .position(x: UIScreen.main.bounds.width / 2, y: 250)
                             .transition(.move(edge: .top))

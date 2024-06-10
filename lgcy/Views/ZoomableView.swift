@@ -9,45 +9,48 @@ struct ZoomableView: View {
     var body: some View {
         ZStack {
             GeometryReader { geometry in
-                let width = geometry.size.width
-                let height = geometry.size.height
                 
-                Image(galleryViewModel.currentSelectedImageName ?? "image01")
-                    .resizable()
-                    .scaleEffect(scale)
-                    .gesture(MagnificationGesture()
-                        .onChanged { value in
-                            self.scale = self.lastScale * value
-                        }
-                        .onEnded { value in
-                            self.lastScale = self.scale
-                        }
-                    )
-                    .overlay(
-                        // Overlay the grid lines
-                        GeometryReader { imageGeometry in
-                            let imageWidth = imageGeometry.size.width
-                            let imageHeight = imageGeometry.size.height
-                            
-                            Path { path in
-                                // Horizontal lines
-                                for i in 1..<lineCount {
-                                    let y = imageHeight * CGFloat(i) / CGFloat(lineCount)
-                                    path.move(to: CGPoint(x: 0, y: y))
-                                    path.addLine(to: CGPoint(x: imageWidth, y: y))
-                                }
-                                
-                                // Vertical lines
-                                for i in 1..<lineCount {
-                                    let x = imageWidth * CGFloat(i) / CGFloat(lineCount)
-                                    path.move(to: CGPoint(x: x, y: 0))
-                                    path.addLine(to: CGPoint(x: x, y: imageHeight))
-                                }
+                if let image = galleryViewModel.currentSelected {
+                    Image(uiImage: image.image)
+                        .resizable()
+                        .scaleEffect(scale)
+                        .gesture(MagnificationGesture()
+                            .onChanged { value in
+                                self.scale = self.lastScale * value
                             }
-                            .stroke(Color.gray, lineWidth: 1)
-                            .scaleEffect(scale, anchor: .center)
-                        }
-                    )
+                            .onEnded { value in
+                                self.lastScale = self.scale
+                            }
+                        )
+                        .overlay(
+                            // Overlay the grid lines
+                            GeometryReader { imageGeometry in
+                                let imageWidth = imageGeometry.size.width
+                                let imageHeight = imageGeometry.size.height
+                                
+                                Path { path in
+                                    // Horizontal lines
+                                    for i in 1..<lineCount {
+                                        let y = imageHeight * CGFloat(i) / CGFloat(lineCount)
+                                        path.move(to: CGPoint(x: 0, y: y))
+                                        path.addLine(to: CGPoint(x: imageWidth, y: y))
+                                    }
+                                    
+                                    // Vertical lines
+                                    for i in 1..<lineCount {
+                                        let x = imageWidth * CGFloat(i) / CGFloat(lineCount)
+                                        path.move(to: CGPoint(x: x, y: 0))
+                                        path.addLine(to: CGPoint(x: x, y: imageHeight))
+                                    }
+                                }
+                                .stroke(Color.gray, lineWidth: 1)
+                                .scaleEffect(scale, anchor: .center)
+                            }
+                        )
+                } else {
+                    
+                }
+                
             }
             .clipped()
         }
