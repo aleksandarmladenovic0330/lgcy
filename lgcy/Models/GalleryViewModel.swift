@@ -50,7 +50,9 @@ class GalleryViewModel: ObservableObject {
         manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFill, options: options) { image, _ in
             if let image = image {
                 DispatchQueue.main.async {
-                    self.images.append(ImageModel(image: image))
+                    let imageModel = ImageModel(image: image)
+                    self.images.append(imageModel)
+                    self.currentSelected = imageModel
                 }
             }
         }

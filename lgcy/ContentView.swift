@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showPopover = false
+    @State private var showPopover = true
     @State private var popoverPosition: CGPoint = .zero
     @StateObject private var galleryViewModel: GalleryViewModel = GalleryViewModel()
     
