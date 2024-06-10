@@ -10,18 +10,15 @@ struct ContentView: View {
             VStack {
                 Text("Recents")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                ZStack {
-                    ImageCollectionView(action: {isSelected in
-                        showPopover = isSelected;
-                    })
                     
                     if showPopover {
                         PopupView(showPopover: $showPopover)
-                            .position(x: UIScreen.main.bounds.width / 2, y: 250)
-                            .transition(.move(edge: .top))
-                            .zIndex(1)
+                            
                     }
-                }
+                
+                    ImageCollectionView(action: {isSelected in
+                        showPopover = isSelected;
+                    })
             }
         })
         .environmentObject(galleryViewModel).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)

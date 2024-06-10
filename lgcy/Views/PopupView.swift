@@ -28,7 +28,7 @@ struct PopupView: View {
                 .padding()
                 ZoomableView()
             }
-            .frame(width: UIScreen.main.bounds.width, height: 600)
+            .frame(width: UIScreen.main.bounds.width, height: 400)
             .background(Color.black)
             .shadow(radius: 10)
         
