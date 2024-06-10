@@ -8,17 +8,28 @@ struct ContentView: View {
     var body: some View {
         NavigationView(content: {
             VStack {
-                Text("Recents")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    if showPopover {
-                        PopupView(showPopover: $showPopover)
-                            
-                    }
+                if showPopover {
+                    PopupView(showPopover: $showPopover)
+                }
                 
-                    ImageCollectionView(action: {isSelected in
-                        showPopover = isSelected;
-                    })
+                HStack{
+                    Text("Recents")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Image(systemName: "square.on.square")
+                        .foregroundColor(galleryViewModel.limit == 1 ? .white : .blue)
+                        .onTapGesture {
+                            galleryViewModel.limit = 11 - galleryViewModel.limit
+                            if galleryViewModel.limit == 1 {
+                                galleryViewModel.selectedImageIDs.removeAll()
+                            }
+                    }
+                    NavigationLink(destination: Camera()) {Image(systemName: "camera")
+                    }
+                }
+            
+                ImageCollectionView(action: {isSelected in
+                    showPopover = isSelected;
+                })
             }
         })
         .environmentObject(galleryViewModel).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)

@@ -21,6 +21,7 @@
 		2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681442C129F6E00E18B99 /* ZoomableView.swift */; };
 		2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681462C12A02C00E18B99 /* PopupView.swift */; };
 		2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF252C177FA3007A79BC /* NumberBadge.swift */; };
+		2F96FF2A2C1791CA007A79BC /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF292C1791CA007A79BC /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		2F3681442C129F6E00E18B99 /* ZoomableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableView.swift; sourceTree = "<group>"; };
 		2F3681462C12A02C00E18B99 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		2F96FF252C177FA3007A79BC /* NumberBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBadge.swift; sourceTree = "<group>"; };
+		2F96FF292C1791CA007A79BC /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		2F96FF2B2C1793B7007A79BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 		2F3680FC2C1041F200E18B99 /* lgcy */ = {
 			isa = PBXGroup;
 			children = (
+				2F96FF2B2C1793B7007A79BC /* Info.plist */,
 				2F36812C2C11ABA100E18B99 /* Views */,
 				2F36812A2C11AB8A00E18B99 /* Resources */,
 				2F3681292C11AB8400E18B99 /* Models */,
@@ -176,6 +180,7 @@
 				2F3681442C129F6E00E18B99 /* ZoomableView.swift */,
 				2F3681462C12A02C00E18B99 /* PopupView.swift */,
 				2F96FF252C177FA3007A79BC /* NumberBadge.swift */,
+				2F96FF292C1791CA007A79BC /* Camera.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				2F3681302C11AF3E00E18B99 /* GalleryViewModel.swift in Sources */,
 				2F36812E2C11AEE700E18B99 /* ImageModel.swift in Sources */,
 				2F3680FE2C1041F200E18B99 /* lgcyApp.swift in Sources */,
+				2F96FF2A2C1791CA007A79BC /* Camera.swift in Sources */,
 				2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */,
 				2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */,
 				2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */,
@@ -484,6 +490,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"lgcy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lgcy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "this permission for camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "this permission for microphone";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "this permission for photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "this permission for photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -514,6 +525,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"lgcy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lgcy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "this permission for camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "this permission for microphone";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "this permission for photo";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "this permission for photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

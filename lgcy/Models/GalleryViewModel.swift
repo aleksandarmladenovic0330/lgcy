@@ -13,6 +13,7 @@ class GalleryViewModel: ObservableObject {
     @Published var images: [ImageModel] = []
     @Published var selectedImageIDs: [UUID] = []
     @Published var currentSelected: ImageModel? = nil
+    @Published var limit: Int = 10
     init() {
 //        images = (0..<count).map { index in
 //            let formattedIndex = String(format: "%02d", index % 10 + 1)

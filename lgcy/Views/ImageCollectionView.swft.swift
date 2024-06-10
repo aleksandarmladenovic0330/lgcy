@@ -26,8 +26,10 @@ struct ImageCollectionView: View {
                                 toggleSelection(for: imageModel)
                             }.zIndex(1)
                         if let index = galleryViewModel.selectedImageIDs.firstIndex(of: imageModel.id) {
-                            NumberBadge(number: index + 1)
-                                .zIndex(2)
+                            if galleryViewModel.limit == 10 {
+                                NumberBadge(number: index + 1)
+                                    .zIndex(2)
+                            }
                         }
                     }
                 }
@@ -43,9 +45,7 @@ struct ImageCollectionView: View {
                 galleryViewModel.selectedImageIDs.remove(at: imageIndex)
             }
             let imageArray = Array(galleryViewModel.selectedImageIDs)
-            if imageArray.isEmpty {
-                action(false)
-            } else {
+            if !imageArray.isEmpty {
                 if let foundImage = galleryViewModel.images.first(where: {
                     $0.id == imageArray[imageArray.count - 1]
                 }) {
@@ -57,11 +57,18 @@ struct ImageCollectionView: View {
                 }
             }
         } else {
-            if galleryViewModel.selectedImageIDs.count == 3 {
+            if galleryViewModel.selectedImageIDs.count == galleryViewModel.limit {
+                if galleryViewModel.limit == 1 {
+                    galleryViewModel.selectedImageIDs.removeAll()
+                    galleryViewModel.selectedImageIDs.insert(imageModel.id, at: 0)
+                    
+                    galleryViewModel.currentSelected = imageModel
+                }
+                
                 return
             }
             galleryViewModel.selectedImageIDs.insert(imageModel.id, at: galleryViewModel.selectedImageIDs.count)
-            galleryViewModel.currentSelected = imageModel;
+            galleryViewModel.currentSelected = imageModel
             action(true)
         }
     }
