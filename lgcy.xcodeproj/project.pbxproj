@@ -22,6 +22,8 @@
 		2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3681462C12A02C00E18B99 /* PopupView.swift */; };
 		2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF252C177FA3007A79BC /* NumberBadge.swift */; };
 		2F96FF2A2C1791CA007A79BC /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF292C1791CA007A79BC /* Camera.swift */; };
+		2F96FF332C18A197007A79BC /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF322C18A197007A79BC /* ImagePreview.swift */; };
+		2F96FF352C18AFC9007A79BC /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96FF342C18AFC9007A79BC /* VideoPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		2F96FF252C177FA3007A79BC /* NumberBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBadge.swift; sourceTree = "<group>"; };
 		2F96FF292C1791CA007A79BC /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		2F96FF2B2C1793B7007A79BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2F96FF322C18A197007A79BC /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
+		2F96FF342C18AFC9007A79BC /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 				2F3681462C12A02C00E18B99 /* PopupView.swift */,
 				2F96FF252C177FA3007A79BC /* NumberBadge.swift */,
 				2F96FF292C1791CA007A79BC /* Camera.swift */,
+				2F96FF322C18A197007A79BC /* ImagePreview.swift */,
+				2F96FF342C18AFC9007A79BC /* VideoPlayer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,10 +324,12 @@
 				2F3681002C1041F200E18B99 /* ContentView.swift in Sources */,
 				2F3681472C12A02C00E18B99 /* PopupView.swift in Sources */,
 				2F3681372C11DB7500E18B99 /* ImageCollectionView.swft.swift in Sources */,
+				2F96FF332C18A197007A79BC /* ImagePreview.swift in Sources */,
 				2F3681302C11AF3E00E18B99 /* GalleryViewModel.swift in Sources */,
 				2F36812E2C11AEE700E18B99 /* ImageModel.swift in Sources */,
 				2F3680FE2C1041F200E18B99 /* lgcyApp.swift in Sources */,
 				2F96FF2A2C1791CA007A79BC /* Camera.swift in Sources */,
+				2F96FF352C18AFC9007A79BC /* VideoPlayer.swift in Sources */,
 				2F3681452C129F6E00E18B99 /* ZoomableView.swift in Sources */,
 				2F96FF262C177FA3007A79BC /* NumberBadge.swift in Sources */,
 				2F3681392C11DE8D00E18B99 /* ImageDetailView.swift in Sources */,

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PopupView: View {
     @Binding var showPopover: Bool
+    @EnvironmentObject var galleryViewModel: GalleryViewModel
 
     var body: some View {
             VStack {
@@ -26,7 +27,13 @@ struct PopupView: View {
                     .padding()
                 }
                 .padding()
-                ZoomableView()
+                if galleryViewModel.currentSelected?.type == 0 {
+                    ZoomableView()
+                } else {
+                    if let videoAsset = galleryViewModel.currentSelected?.video {
+                        VideoPlayerView(asset: videoAsset)
+                    }
+                }
             }
             .frame(width: UIScreen.main.bounds.width, height: 400)
             .background(Color.black)

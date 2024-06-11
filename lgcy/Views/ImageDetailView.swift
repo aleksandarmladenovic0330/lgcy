@@ -38,35 +38,36 @@ struct ImageDetailView: View {
         VStack {
             if let currentImage = galleryViewModel.currentSelected
                 {
-                let originalImage = currentImage.image
-                let filteredImages = generateFilteredImages(to: originalImage)
-                let showImage = showImageIndex == -1 ? originalImage : filteredImages[showImageIndex]
-                Image(uiImage: showImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 400)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        VStack {
-                            Text("Normal").foregroundColor(.white)
-                            Image(uiImage: originalImage)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 150)
-                                .onTapGesture {
-                                    showImageIndex = -1
-                                }
-                        }
-                        ForEach(Array(filteredImages.enumerated()), id: \.element) {index, filteredImage in
+                if let originalImage = currentImage.image {
+                    let filteredImages = generateFilteredImages(to: originalImage)
+                    let showImage = showImageIndex == -1 ? originalImage : filteredImages[showImageIndex]
+                    Image(uiImage: showImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 400)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
                             VStack {
-                                Text(keys[index]).foregroundColor(.white)
-                                Image(uiImage: filteredImage)
+                                Text("Normal").foregroundColor(.white)
+                                Image(uiImage: originalImage)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: 150)
                                     .onTapGesture {
-                                        showImageIndex = index;
+                                        showImageIndex = -1
                                     }
+                            }
+                            ForEach(Array(filteredImages.enumerated()), id: \.element) {index, filteredImage in
+                                VStack {
+                                    Text(keys[index]).foregroundColor(.white)
+                                    Image(uiImage: filteredImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 150)
+                                        .onTapGesture {
+                                            showImageIndex = index;
+                                        }
+                                }
                             }
                         }
                     }.padding()

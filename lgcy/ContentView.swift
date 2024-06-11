@@ -26,10 +26,11 @@ struct ContentView: View {
                     NavigationLink(destination: Camera()) {Image(systemName: "camera")
                     }
                 }
-            
-                ImageCollectionView(action: {isSelected in
-                    showPopover = isSelected;
-                })
+                ScrollView {
+                    ImageCollectionView(action: {isSelected in
+                        showPopover = isSelected;
+                    })
+                }
             }
         })
         .environmentObject(galleryViewModel).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)

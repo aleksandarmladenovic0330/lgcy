@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ImageCollectionView: View {
     @EnvironmentObject private var galleryViewModel: GalleryViewModel
-    @State private var number: Int = 1
     let action: (Bool) -> Void
 
     let columns = [
@@ -13,26 +12,11 @@ struct ImageCollectionView: View {
     ]
 
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 0) {
-                ForEach(galleryViewModel.images) { imageModel in
-                    ZStack(alignment: .topTrailing) {
-                        Image(uiImage: imageModel.image)
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4)
-                            .clipped()
-                            .opacity(galleryViewModel.selectedImageIDs.contains(imageModel.id) ? 0.5 : 1.0)
-                            .onTapGesture {
-                                toggleSelection(for: imageModel)
-                            }.zIndex(1)
-                        if let index = galleryViewModel.selectedImageIDs.firstIndex(of: imageModel.id) {
-                            if galleryViewModel.limit == 10 {
-                                NumberBadge(number: index + 1)
-                                    .zIndex(2)
-                            }
-                        }
-                    }
-                }
+        LazyVGrid(columns: columns, spacing: 0) {
+            ForEach(galleryViewModel.images) { imageModel in
+                ImagePreview(imageModel: imageModel, toggleSelection: {imageModel in
+                    self.toggleSelection(for: imageModel)
+                })
             }
             .padding(.horizontal, 2)
         }

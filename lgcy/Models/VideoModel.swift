@@ -8,10 +8,8 @@
 import SwiftUI
 import Photos
 
-struct ImageModel: Identifiable
+struct VideoModel: Identifiable
 {
     var id = UUID()
-    var image: UIImage?
-    var video: PHAsset?
-    var type: Int
+    var video: PHAsset
 }

@@ -24,8 +24,12 @@ struct accessCameraView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
+//        #if targetEnvironment(simulator)
+//        imagePicker.sourceType = .photoLibrary
+//        #else
         imagePicker.sourceType = .camera
-//        imagePicker.allowsEditing = true
+//        #endif
+        imagePicker.allowsEditing = true
         imagePicker.delegate = context.coordinator
         return imagePicker
     }

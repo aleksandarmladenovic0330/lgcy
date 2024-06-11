@@ -10,8 +10,8 @@ struct ZoomableView: View {
         ZStack {
             GeometryReader { geometry in
                 
-                if let image = galleryViewModel.currentSelected {
-                    Image(uiImage: image.image)
+                if let image = galleryViewModel.currentSelected, let showImage = image.image {
+                    Image(uiImage: showImage)
                         .resizable()
                         .scaleEffect(scale)
                         .gesture(MagnificationGesture()
