@@ -13,5 +13,6 @@ struct ImageModel: Identifiable
     var id = UUID()
     var image: UIImage?
     var video: PHAsset?
+    var videoLength: Double?
     var type: Int
 }

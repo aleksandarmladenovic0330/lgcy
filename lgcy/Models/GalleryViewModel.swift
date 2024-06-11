@@ -35,7 +35,7 @@ class GalleryViewModel: ObservableObject {
                     for asset in videos {
                         self.generateThumbnail(asset: asset) { image in
                             if let image = image {
-                                self.images.append(ImageModel(image: image, video: asset, type: 1))
+                                self.images.append(ImageModel(image: image, video: asset, videoLength: asset.duration, type: 1))
                             }
                         }
                     }

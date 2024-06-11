@@ -29,7 +29,19 @@ struct ImagePreview: View {
                             .zIndex(2)
                     }
                 }
+                if let duration = imageModel.videoLength {
+                    Text(formatTime(time: duration))
+                        .padding(1)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                        .zIndex(2)
+                }
             }
         }
+    }
+    
+    private func formatTime(time: Double) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
